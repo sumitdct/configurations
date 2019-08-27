@@ -32,7 +32,7 @@ dataSources:
     name: billing
     host: 134.209.21.37
     port: 3306
-    userName: sumit
+    userName: billing
     password: sumit@2019
     driver: com.mysql.jdbc.Driver
     schema: billing

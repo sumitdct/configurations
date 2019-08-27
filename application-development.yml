@@ -1,0 +1,105 @@
+# -- BASIC INFORMATION -- #
+info:
+  environment:
+    name: Billing - Development
+    ip: Development
+  developer:
+    name: Sumit Chouksey
+    email: sumitchouksey2315@gmail.com
+
+# -- DEFAULT CONFIGURATION (TOMCAT POOL PROPERTIES) -- #
+defaultPoolConfiguration: &refPC
+  type: javax.sql.DataSource
+  factory: org.apache.tomcat.jdbc.pool.DataSourceFactory
+  initialSize: 1
+  maxWaitMillis: 10000
+  maxTotal: 20
+  maxIdle: 1
+  minIdle: 1
+  removeAbandoned: true
+  removeAbandonedTimeout: 10
+  validationQuery: SELECT 1
+  validationInterval: 60
+  testOnBorrow: true
+  timeBetweenEvictionRunsMillis: 28700
+  minEvictableIdleTimeMillis: 28750
+  useSSL: false
+
+# -- DATA SOURCE CONFIGURATION -- #
+dataSources:
+  # -- platform datasource -- #
+  platform:
+    name: apirus
+    host: 134.209.21.37
+    port: 3306
+    userName: sumit
+    password: sumit@2019
+    driver: com.mysql.jdbc.Driver
+    schema: billing
+    poolConfiguration:
+      <<: *refPC
+
+  # -- Platform - KeepMe -- #
+  keepMe:
+    authenticatedDatabase: admin
+    database: mark
+    host: 35.200.251.188
+    port: 27017
+    userName: apirus
+    password: apirus@2019
+    uri:
+    fieldNamingStrategy:
+    gridFsDatabase:
+
+# -- PARAMETER CONFIGURATION -- #
+parameters:
+  servicesRedirectionUrl: http://localhost:8080
+  pythonRedirectionUrl: http://localhost:8080
+  mailServerIp: gmail
+  mailServerPort: 25
+  mailServerEmail: gmail
+  mailServerPassword:
+
+# -- EUREKA CONFIGURATION -- #
+eureka:
+  instance:
+    #instanceId: ${spring.application.name}
+    prefer-ip-address: true
+  server:
+    enableSelfPreservation: false
+  client:
+    service-url:
+      defaultZone: http://134.209.21.37:1992/eureka
+    register-with-eureka: true
+    fetch-registry: true
+    registryFetchIntervalSeconds: 2
+
+# -- CONFIGURATION REQUIRED IN ALL APIs --#
+spring:
+  # -- RABBITMQ CONFIGURATION -- #
+  rabbitmq:
+    host: 134.209.21.37
+    port: 5672
+    username: sumit
+    password: sumit@2019
+    #-- REDIS SERVER CONFIGURATION --#
+  redis:
+    password: 90ce7f00616b82e22c3ff02f55624b95cee2a1c119fec3675f36c67992b339fd
+    host: 134.209.21.37
+    port: 6379
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: info@playdiator.com
+    password: playdiator@2019
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+    test-connection: true
+

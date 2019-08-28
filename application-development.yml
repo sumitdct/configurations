@@ -87,19 +87,19 @@ spring:
     password: 9ce4679fd614f778b3a18d0e382d663f18c8d001a7b6d6663d0c04b4130ab47a
     host: 134.209.21.37
     port: 6379
-  mail:
-    host: smtp.gmail.com
-    port: 465
-    username: apirustech@gmail.com
-    password: Shruti@300492
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
-          ssl:
-            enable: true
-    test-connection: true
+  #mail:
+    #host: smtp.gmail.com
+    #port: 465
+    #username: apirustech@gmail.com
+    #password: Shruti@300492
+    #properties:
+      #mail:
+        #smtp:
+          #auth: true
+          #starttls:
+            #enable: true
+            #required: true
+          #ssl:
+            #enable: true
+    #test-connection: true
 

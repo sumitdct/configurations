@@ -90,8 +90,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 465
-    username: info@playdiator.com
-    password: playdiator@2019
+    username: apirustech@gmail.com
+    password: Shruti@300492
     properties:
       mail:
         smtp:
